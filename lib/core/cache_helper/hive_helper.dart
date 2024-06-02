@@ -1,3 +1,4 @@
+import 'package:axis_task/features/actors/data/models/actor_model.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -9,5 +10,7 @@ class HiveHelper {
     _registerAdaptors();
   }
 
-  static void _registerAdaptors() {}
+  static void _registerAdaptors() {
+    Hive.registerAdapter(ActorModelAdapter());
+  }
 }

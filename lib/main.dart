@@ -1,3 +1,4 @@
+import 'package:axis_task/core/cache_helper/hive_helper.dart';
 import 'package:axis_task/core/di/dependency_injection.dart';
 import 'package:axis_task/core/extentions/number_extentions.dart';
 import 'package:axis_task/core/router/route_helper.dart';
@@ -9,7 +10,9 @@ import 'package:provider/provider.dart';
 import 'features/actors/domain/logic_holder/actors_controller.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   init();
+  HiveHelper.initHive();
   runApp(AxisApp(appRouter: AppRouter()));
 }
 

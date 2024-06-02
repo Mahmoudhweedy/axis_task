@@ -1,4 +1,5 @@
 import 'package:axis_task/core/network/api_constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class AppFadeImage extends StatelessWidget {
@@ -19,16 +20,24 @@ class AppFadeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInImage(
-      image: NetworkImage("${ApiConstants.remoteImagePath}$actorPhoto"),
-      placeholder:
-          AssetImage(gender == 1 ? "assets/woman.jpg" : "assets/man.jpg"),
-      imageErrorBuilder: (context, error, stackTrace) {
-        return Image.asset(gender == 1 ? "assets/woman.jpg" : "assets/man.jpg");
-      },
-      fit: fit,
-      height: height,
-      width: width,
+    return CachedNetworkImage(
+      imageUrl: "${ApiConstants.remoteImagePath}$actorPhoto",
+      errorWidget: (context, url, error) => ImagePlaceHolder(gender: gender),
+      placeholder: (context, url) => ImagePlaceHolder(gender: gender),
     );
+  }
+}
+
+class ImagePlaceHolder extends StatelessWidget {
+  const ImagePlaceHolder({
+    super.key,
+    required this.gender,
+  });
+
+  final int gender;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(gender == 1 ? "assets/woman.jpg" : "assets/man.jpg");
   }
 }

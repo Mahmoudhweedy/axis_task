@@ -1,14 +1,14 @@
 import 'actor_model.dart';
 
 class ActorResponse {
-  final int page, totalPages, totalResult;
+  final int? page, totalPages, totalResult;
   final List<ActorModel> actors;
 
   ActorResponse({
-    required this.page,
+    this.page,
     required this.actors,
-    required this.totalPages,
-    required this.totalResult,
+    this.totalPages,
+    this.totalResult,
   });
   factory ActorResponse.fromJson(Map<String, dynamic> json) {
     final List<dynamic> list = json['results'];
