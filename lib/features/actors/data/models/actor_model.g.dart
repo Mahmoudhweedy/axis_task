@@ -11,10 +11,10 @@ _$ActorModelImpl _$$ActorModelImplFromJson(Map<String, dynamic> json) =>
       adult: json['adult'] as bool?,
       gender: (json['gender'] as num?)?.toInt(),
       id: (json['id'] as num?)?.toInt(),
-      knownForDepartment: json['knownForDepartment'] as String?,
+      knownForDepartment: json['known_for_department'] as String?,
       name: json['name'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
-      profilePath: json['profilePath'] as String?,
+      profilePath: json['profile_path'] as String?,
     );
 
 Map<String, dynamic> _$$ActorModelImplToJson(_$ActorModelImpl instance) =>
@@ -22,8 +22,8 @@ Map<String, dynamic> _$$ActorModelImplToJson(_$ActorModelImpl instance) =>
       'adult': instance.adult,
       'gender': instance.gender,
       'id': instance.id,
-      'knownForDepartment': instance.knownForDepartment,
+      'known_for_department': instance.knownForDepartment,
       'name': instance.name,
       'popularity': instance.popularity,
-      'profilePath': instance.profilePath,
+      'profile_path': instance.profilePath,
     };

@@ -23,9 +23,11 @@ mixin _$ActorModel {
   bool? get adult => throw _privateConstructorUsedError;
   int? get gender => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'known_for_department')
   String? get knownForDepartment => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get popularity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_path')
   String? get profilePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,10 +46,10 @@ abstract class $ActorModelCopyWith<$Res> {
       {bool? adult,
       int? gender,
       int? id,
-      String? knownForDepartment,
+      @JsonKey(name: 'known_for_department') String? knownForDepartment,
       String? name,
       double? popularity,
-      String? profilePath});
+      @JsonKey(name: 'profile_path') String? profilePath});
 }
 
 /// @nodoc
@@ -116,10 +118,10 @@ abstract class _$$ActorModelImplCopyWith<$Res>
       {bool? adult,
       int? gender,
       int? id,
-      String? knownForDepartment,
+      @JsonKey(name: 'known_for_department') String? knownForDepartment,
       String? name,
       double? popularity,
-      String? profilePath});
+      @JsonKey(name: 'profile_path') String? profilePath});
 }
 
 /// @nodoc
@@ -181,10 +183,10 @@ class _$ActorModelImpl implements _ActorModel {
       {this.adult,
       this.gender,
       this.id,
-      this.knownForDepartment,
+      @JsonKey(name: 'known_for_department') this.knownForDepartment,
       this.name,
       this.popularity,
-      this.profilePath});
+      @JsonKey(name: 'profile_path') this.profilePath});
 
   factory _$ActorModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorModelImplFromJson(json);
@@ -196,12 +198,14 @@ class _$ActorModelImpl implements _ActorModel {
   @override
   final int? id;
   @override
+  @JsonKey(name: 'known_for_department')
   final String? knownForDepartment;
   @override
   final String? name;
   @override
   final double? popularity;
   @override
+  @JsonKey(name: 'profile_path')
   final String? profilePath;
 
   @override
@@ -250,9 +254,10 @@ abstract class _ActorModel implements ActorModel {
       {final bool? adult,
       final int? gender,
       final int? id,
-      final String? knownForDepartment,
+      @JsonKey(name: 'known_for_department') final String? knownForDepartment,
       final String? name,
       final double? popularity,
+      @JsonKey(name: 'profile_path')
       final String? profilePath}) = _$ActorModelImpl;
 
   factory _ActorModel.fromJson(Map<String, dynamic> json) =
@@ -265,12 +270,14 @@ abstract class _ActorModel implements ActorModel {
   @override
   int? get id;
   @override
+  @JsonKey(name: 'known_for_department')
   String? get knownForDepartment;
   @override
   String? get name;
   @override
   double? get popularity;
   @override
+  @JsonKey(name: 'profile_path')
   String? get profilePath;
   @override
   @JsonKey(ignore: true)

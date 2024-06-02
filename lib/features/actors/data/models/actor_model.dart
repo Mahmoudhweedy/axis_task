@@ -9,10 +9,10 @@ class ActorModel with _$ActorModel {
     bool? adult,
     int? gender,
     int? id,
-    String? knownForDepartment,
+    @JsonKey(name: 'known_for_department') String? knownForDepartment,
     String? name,
     double? popularity,
-    String? profilePath,
+    @JsonKey(name: 'profile_path') String? profilePath,
   }) = _ActorModel;
 
   factory ActorModel.fromJson(Map<String, Object?> json) =>

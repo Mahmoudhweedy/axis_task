@@ -14,7 +14,7 @@ class ActorsProvider extends ChangeNotifier {
     List<ActorModel> actors = [];
     final response = await getActorsRepo.getAllActors(pageKey);
     response.when(
-      success: (data) => actors = data,
+      success: (data) => actors = data.actors,
       failure: (errorHandler) => SnackBarMessage.showErrorSnackBar(
         context: context,
         message: errorHandler.apiErrorModel.message!,

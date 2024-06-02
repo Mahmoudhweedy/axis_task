@@ -21,14 +21,13 @@ class _ActorsApiService implements ActorsApiService {
   String? baseUrl;
 
   @override
-  Future<ActorModel> getAllActors([String? pageKey]) async {
+  Future<ActorResponse> getAllActors(int pageKey) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ActorModel>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<ActorResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -44,7 +43,7 @@ class _ActorsApiService implements ActorsApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ActorModel.fromJson(_result.data!);
+    final value = ActorResponse.fromJson(_result.data!);
     return value;
   }
 

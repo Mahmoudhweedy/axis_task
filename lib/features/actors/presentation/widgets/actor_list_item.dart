@@ -19,7 +19,7 @@ class CharacterListItem extends StatelessWidget {
           child: Container(
             clipBehavior: Clip.antiAliasWithSaveLayer,
             decoration: const BoxDecoration(shape: BoxShape.circle),
-            child: AppFadeImage(actorPhoto: actor.profilePath!),
+            child: AppFadeImage(actorPhoto: actor.profilePath ?? ""),
           ),
         ),
         title: Text(actor.name!),
