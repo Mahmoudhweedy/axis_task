@@ -6,8 +6,7 @@ part of 'actor_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorModelImpl _$$ActorModelImplFromJson(Map<String, dynamic> json) =>
-    _$ActorModelImpl(
+ActorModel _$ActorModelFromJson(Map<String, dynamic> json) => ActorModel(
       adult: json['adult'] as bool?,
       gender: (json['gender'] as num?)?.toInt(),
       id: (json['id'] as num?)?.toInt(),
@@ -17,7 +16,7 @@ _$ActorModelImpl _$$ActorModelImplFromJson(Map<String, dynamic> json) =>
       profilePath: json['profile_path'] as String?,
     );
 
-Map<String, dynamic> _$$ActorModelImplToJson(_$ActorModelImpl instance) =>
+Map<String, dynamic> _$ActorModelToJson(ActorModel instance) =>
     <String, dynamic>{
       'adult': instance.adult,
       'gender': instance.gender,

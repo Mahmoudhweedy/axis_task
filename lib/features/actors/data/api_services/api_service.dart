@@ -1,8 +1,8 @@
 import 'package:axis_task/core/network/api_constants.dart';
-import 'package:axis_task/features/actors/data/models/actor_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../models/actor_images_response.dart';
 import '../models/actor_response.dart';
 
 part 'api_service.g.dart';
@@ -13,4 +13,7 @@ abstract class ActorsApiService {
 
   @GET('${ApiConstants.allActorsUrl}{pageKey}')
   Future<ActorResponse> getAllActors(@Path() int pageKey);
+
+  @GET('/person/{actorId}/images?api_key=${ApiConstants.apiKey}')
+  Future<ActorImagesResponse> getActorImages(@Path() int actorId);
 }

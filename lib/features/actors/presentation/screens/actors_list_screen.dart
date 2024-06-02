@@ -1,8 +1,6 @@
-import 'package:axis_task/features/actors/domain/logic_holder/actors_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/di/dependency_injection.dart';
 import 'actor_list_view.dart';
 
 class ActorsListScreen extends StatelessWidget {
@@ -10,10 +8,9 @@ class ActorsListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Actors')),
         resizeToAvoidBottomInset: false,
-        body: ChangeNotifierProvider(
-          create: (context) => di<ActorsProvider>(),
+        body: Padding(
+          padding: EdgeInsets.only(top: 50.h),
           child: const ActorsListView(),
         ),
       );

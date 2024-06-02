@@ -8,20 +8,23 @@ class AppFadeImage extends StatelessWidget {
     this.fit = BoxFit.contain,
     this.width,
     this.height,
+    this.gender = 2,
   });
 
   final String actorPhoto;
   final BoxFit? fit;
   final double? width;
   final double? height;
+  final int gender;
 
   @override
   Widget build(BuildContext context) {
     return FadeInImage(
       image: NetworkImage("${ApiConstants.remoteImagePath}$actorPhoto"),
-      placeholder: const AssetImage("assets/man.jpg"),
+      placeholder:
+          AssetImage(gender == 1 ? "assets/woman.jpg" : "assets/man.jpg"),
       imageErrorBuilder: (context, error, stackTrace) {
-        return Image.asset("assets/man.jpg");
+        return Image.asset(gender == 1 ? "assets/woman.jpg" : "assets/man.jpg");
       },
       fit: fit,
       height: height,

@@ -27,6 +27,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

@@ -1,4 +1,5 @@
 import 'package:axis_task/core/utils/snackbar_message.dart';
+import 'package:axis_task/features/actors/data/models/actor_images_model.dart';
 import 'package:axis_task/features/actors/data/models/actor_model.dart';
 import 'package:axis_task/features/actors/data/repository/actors_repo.dart';
 import 'package:flutter/material.dart';
@@ -39,5 +40,19 @@ class ActorsProvider extends ChangeNotifier {
     } catch (error) {
       pagingController.error = error;
     }
+  }
+
+  List<ActorImagesModel> images = [];
+  Future<void> getActorsImages(int actorId, BuildContext context) async {
+    images.clear();
+    final response = await getActorsRepo.getActorImages(actorId);
+    response.when(
+      success: (data) => images = data.images,
+      failure: (errorHandler) => SnackBarMessage.showErrorSnackBar(
+        context: context,
+        message: errorHandler.apiErrorModel.message!,
+      ),
+    );
+    notifyListeners();
   }
 }
