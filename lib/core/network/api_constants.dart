@@ -3,6 +3,8 @@ class ApiConstants {
   static const String apiKey = "ad4ca8f0485fb4efcc9cfe7ccaab8e18";
   static const String allActorsUrl =
       '/person/popular?api_key=$apiKey&language=en-US&page=';
+
+  static const String remoteImagePath = "https://image.tmdb.org/t/p/original";
 }
 
 class ApiErrors {

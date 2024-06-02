@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../features/actors/presentation/screens/actors_list_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -9,7 +10,7 @@ class AppRouter {
 
     switch (settings.name) {
       case Routes.actorsScreen:
-        return MaterialPageRoute(builder: (_) => const Scaffold());
+        return MaterialPageRoute(builder: (_) => const ActorsListScreen());
 
       default:
         return MaterialPageRoute(
