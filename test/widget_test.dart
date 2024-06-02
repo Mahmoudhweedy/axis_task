@@ -5,26 +5,21 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:axis_task/core/router/route_helper.dart';
-import 'package:axis_task/main.dart';
+import 'package:axis_task/features/actors/presentation/screens/actor_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Download button testing', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(AxisApp(appRouter: AppRouter()));
+    await tester.pumpWidget(const ActorsListView());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.byElementType(ListTile), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpWidget(const ListTile());
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text("Jennifer Connelly"), findsOneWidget);
+    expect(find.byIcon(Icons.download), findsNothing);
   });
 }
